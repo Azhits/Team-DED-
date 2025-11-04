@@ -1,2 +1,0 @@
-# Team-DED-
-Auto-fight
