@@ -6,7 +6,7 @@ import os
 import json
 
 
-def check_clicable_event_button(frame: cv.typing.MatLike, event_type: str):
+def check_clicable_event_button(frame: cv.typing.MatLike, event_type: str) -> bool:
     """
     функция по типу отслеживаемого ивента (action)
     подбирает подходящий шаблон и ищет его на кадре (frame)

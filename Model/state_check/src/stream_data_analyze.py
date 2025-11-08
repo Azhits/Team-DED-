@@ -5,7 +5,13 @@ import easyocr
 
 import os
 
-def get_data_about_lifebar(frame: cv.typing.MatLike, reader: easyocr.Reader):
+def get_data_about_lifebar(frame: cv.typing.MatLike, reader: easyocr.Reader) -> tuple:
+    """
+    Функция смотрит только на шкалу жизни
+    Из данной шкалы она берет числа - сколько всего HP, сколько осталось
+    При помощи EasyOCR.
+    Возвращает кортеж
+    """
     height, width = frame.shape[:2]
     bottom_y = height
     window_widht = round(width * 0.1)
