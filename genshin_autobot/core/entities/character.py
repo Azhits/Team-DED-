@@ -168,3 +168,23 @@ class CharacterStateChecker:
         """
         # TODO: Implement burst energy detection
         return True
+
+
+    def check_state(self, frame: Optional[cv.typing.MatLike] = None) -> Optional[CharacterHealth]:
+        """Проверить полное состояние персонажа.
+        
+        Check full character state.
+        
+        Args:
+            frame: Game screenshot frame (optional).
+        
+        Returns:
+            CharacterHealth object or None if detection failed.
+            
+        Note:
+            This method is a convenience wrapper around check_health()
+            for compatibility with Pipeline usage.
+        """
+        if frame is None:
+            return None
+        return self.check_health(frame)
