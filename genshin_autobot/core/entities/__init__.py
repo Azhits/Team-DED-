@@ -4,5 +4,6 @@
 """
 
 from .base import Entity
+from .character import CharacterHealth, CharacterStateChecker
 
-__all__ = ['Entity']
+__all__ = ['Entity', 'CharacterHealth', 'CharacterStateChecker']
