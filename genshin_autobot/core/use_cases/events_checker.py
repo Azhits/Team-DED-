@@ -61,6 +61,37 @@ class EventsChecker:
         self._frame: cv.typing.MatLike = frame
         self._text_coords: Dict[str, list] = text_coords_dict or {}
 
+    def check_events(self) -> list:
+        """Проверить наличие игровых событий.
+
+        Check for game events.
+
+        Проверяет экран на наличие игровых событий таких как
+        приглашения в подземелье, активация и завершение отряда.
+
+        This method checks the screen for game events such as
+        dungeon invitations, activation prompts, and squad completion.
+
+        Returns:
+            List of detected events.
+            Список обнаруженных событий.
+        """
+        events = []
+
+        # Check for dungeon invitation
+        if self.check_dungeon_invite():
+            events.append(EventType.DUNGEON_INVITE)
+
+        # Check for dungeon activation
+        if self.check_dungeon_activation():
+            events.append(EventType.DUNGEON_ACTIVATE)
+
+        # Check for squad completion
+        if self.get_squad_completion_coordinates():
+            events.append(EventType.SQUAD_COMPLETE)
+
+        return events
+
     def check_dungeon_invite(self) -> bool:
         """Check if dungeon invitation is present.
         
