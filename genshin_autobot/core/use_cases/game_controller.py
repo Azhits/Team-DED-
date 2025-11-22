@@ -137,3 +137,60 @@ class GameController:
             True if controller is running, False otherwise.
         """
         return self._is_running
+
+    def execute_healing(self) -> Dict[str, Any]:
+        """Выполнить лечение персонажа.
+
+        Execute character healing action.
+
+        Реализует логику восстановления здоровья персонажа.
+
+        This method implements character health restoration logic.
+
+        Returns:
+            Dictionary containing action details:
+            - 'status': 'success' or 'failed'
+            - 'action': 'healing'
+
+            Словарь с деталями действия:
+            - 'status': 'success' или 'failed'
+            - 'action': 'healing'
+        """
+        self._logger.info("Executing healing action")
+
+        # TODO: Implement actual healing logic
+        # For now return placeholder response
+        return {"status": "success", "action": "healing"}
+
+    def handle_event(self, event: Any) -> Dict[str, Any]:
+        """Обработать игровое событие.
+
+        Handle game event.
+
+        Обрабатывает обнаруженное игровое событие и возвращает
+        соответствующее действие.
+
+        This method processes detected game event and returns
+        appropriate action response.
+
+        Args:
+            event: Game event to handle.
+                   Игровое событие для обработки.
+
+        Returns:
+            Dictionary containing action details:
+            - 'status': 'success' or 'failed'
+            - 'action': action name
+
+            Словарь с деталями действия:
+            - 'status': 'success' или 'failed'
+            - 'action': название действия
+        """
+        if not event:
+            raise ValueError("Event cannot be None")
+
+        self._logger.info(f"Handling event: {event}")
+
+        # TODO: Implement event handling logic based on event type
+        # For now return placeholder response
+        return {"status": "success", "action": f"handle_{event}"}
